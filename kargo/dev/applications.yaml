@@ -1,6 +1,6 @@
 udt-ui:
   image:
-    tag: v1.0.0
+    tag: 1.1.1
 
 query-service:
   image:
