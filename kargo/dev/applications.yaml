@@ -1,0 +1,7 @@
+udt-ui:
+  image:
+    tag: v1.0.0
+
+query-service:
+  image:
+    tag: v1.0.0

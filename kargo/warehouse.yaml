@@ -1,0 +1,16 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: my-project
+  namespace: kargo
+spec:
+  subscriptions:
+    - image:
+        repoURL: https://github.com/service-one
+        imageSelectionStrategy: SemVer
+    - image:
+        repoURL: https://github.com/service-two
+        imageSelectionStrategy: SemVer
+    # freightCreationCriteria:
+    #   expression: |
+    #     imageFrom('ghcr.io/example/frontend.git').Tag == imageFrom('ghcr.io/example/backend.git').Tag

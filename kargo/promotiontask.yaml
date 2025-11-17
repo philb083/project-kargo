@@ -1,0 +1,51 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: PromotionTask
+metadata:
+  name: promote
+  namespace: kargo-helm
+spec:
+  vars:
+    - name: repoURL
+      value: https://github.com
+    - name: branch
+      value: main
+    - name: env
+      value: ${{ ctx.stage }}
+
+  steps:
+    - uses: git-clone
+      config:
+        repoURL: ${{ vars.repoURL }}
+        checkout:
+          - commit: ${{ commitFrom( vars.repoURL ).ID }}
+            path: ./src
+          - branch: ${{ vars.branch }}
+            path: ./out
+    - uses: yaml-update
+      as: update-image
+      config:
+        path: ./out/kargo/${{ vars.env }}/applications.yaml
+        updates:
+          - key: ${{vars.appName}}.image.tag
+            value: ${{ commitFrom( vars.repoURL ).ID }}
+    # - uses: copy
+    #   config:
+    #     inPath: ./src/base/feature-flags.yaml
+    #     outPath: ./out/${{ vars.envPath }}/feature-flags.yaml
+    - uses: git-commit
+      as: commit
+      config:
+        path: ./out
+        message: ${{ task.outputs['update-image'].commitMessage }}
+    - uses: git-push
+      config:
+        path: ./out
+    - uses: argocd-update
+      config:
+        apps:
+          - name: {{vars.appName}}
+            namespace: {{var.namespace}}
+            sources:
+              - chart: ${{vars.repoURL}}
+                desiredRevision: ${{ outputs.commit.commit }}
+                updateTargetRevision: true
