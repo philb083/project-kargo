@@ -1,5 +1,7 @@
 applications:
   - name: udt-ui
+    namespace: skyral-bdt
+    createNamespace: true
     valueSources:
       - targetRevision: stage/dev
         repoURL: https://github.com/philb083/project-kargo
@@ -12,6 +14,9 @@ applications:
           - $values/gcp-projects/core-dev/clusters/project-dev/application-values/udt-ui/values.yaml
 
   - name: query-service
+    enabled: true
+    namespace: skyral
+    createNamespace: true
     valueSources:
       - targetRevision: stage/dev
         repoURL: https://github.com/philb083/project-kargo
