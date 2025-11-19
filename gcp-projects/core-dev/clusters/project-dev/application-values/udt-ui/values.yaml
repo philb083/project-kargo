@@ -2,8 +2,8 @@ global:
   env: dev
   components:
     udt-ui:
-      version: ""
+      version: 127f9c89e4d52a3d5ecaed1566da2d0eb816ff9f
 
 deployment:
   image:
-    tag: 2.0.0
+    tag: 127f9c89e4d52a3d5ecaed1566da2d0eb816ff9f
