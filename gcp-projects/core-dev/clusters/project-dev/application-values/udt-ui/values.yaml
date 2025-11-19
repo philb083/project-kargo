@@ -7,3 +7,6 @@ global:
 deployment:
   image:
     tag: 2.0.0
+
+s3ingress:
+  namespace: skyral
