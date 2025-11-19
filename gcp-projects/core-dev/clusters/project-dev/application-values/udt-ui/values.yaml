@@ -9,4 +9,4 @@ deployment:
     tag: 2.0.0
 
 s3ingress:
-  namespace: skyral
+  namespace: kargophil
