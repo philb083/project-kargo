@@ -1,0 +1,6 @@
+global:
+  env: dev
+
+containers:
+  image:
+    tag: 2.1.0

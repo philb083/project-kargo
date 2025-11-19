@@ -1,0 +1,6 @@
+global:
+  env: dev
+
+deployment:
+  image:
+    tag: 2.0.0

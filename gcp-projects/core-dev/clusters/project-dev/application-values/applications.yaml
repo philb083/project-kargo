@@ -1,0 +1,23 @@
+applications:
+  - name: udt-ui
+    valueSources:
+      - targetRevision: stage/dev
+        repoURL: https://github.com/philb083/project-kargo
+        ref: values
+    chartSources:
+      - targetRevision: stage/dev
+        path: deploy
+        repoURL: https://github.com/philb083/udt-ui-kargo
+        valuesFiles:
+          - $values/gcp-projects/core-dev/clusters/project-dev/application-values/udt-ui/values.yaml
+  - name: query-service
+    valueSources:
+      - targetRevision: stage/dev
+        repoURL: https://github.com/philb083/project-kargo
+        ref: values
+    chartSources:
+      - targetRevision: stage/dev
+        path: deploy
+        repoURL: https://github.com/philb083/query-service-kargo
+        valuesFiles:
+          - $values/gcp-projects/core-dev/clusters/project-dev/application-values/query-service/values.yaml
