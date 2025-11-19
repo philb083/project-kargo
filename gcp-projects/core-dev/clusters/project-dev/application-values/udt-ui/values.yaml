@@ -2,11 +2,17 @@ global:
   env: dev
   components:
     udt-ui:
-      version: 127f9c89e4d52a3d5ecaed1566da2d0eb816ff9f
+      version: da3d9cc88faec809a2f9900fb568595b51d30d55
 
 deployment:
   image:
-    tag: 127f9c89e4d52a3d5ecaed1566da2d0eb816ff9f
+    tag: da3d9cc88faec809a2f9900fb568595b51d30d55
+  ports:
+    http: 9090
+  resources:
+    requests:
+      memory: 200Mi
+      cpu: "0.5"
 
 s3ingress:
   namespace: kargophil
