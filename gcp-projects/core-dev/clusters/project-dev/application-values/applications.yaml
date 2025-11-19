@@ -10,6 +10,7 @@ applications:
         repoURL: https://github.com/philb083/udt-ui-kargo
         valuesFiles:
           - $values/gcp-projects/core-dev/clusters/project-dev/application-values/udt-ui/values.yaml
+
   - name: query-service
     valueSources:
       - targetRevision: stage/dev

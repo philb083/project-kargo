@@ -1,5 +1,8 @@
 global:
   env: dev
+  components:
+    udt-ui:
+      version: ""
 
 deployment:
   image:
