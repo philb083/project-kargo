@@ -1,6 +1,6 @@
 applications:
   - name: udt-ui
-    namespace: skyral-bdt
+    namespace: kargophil
     createNamespace: true
     valueSources:
       - targetRevision: stage/dev
@@ -15,7 +15,7 @@ applications:
 
   - name: query-service
     enabled: true
-    namespace: skyral
+    namespace: kargophil
     createNamespace: true
     valueSources:
       - targetRevision: stage/dev
